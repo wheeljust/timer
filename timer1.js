@@ -13,13 +13,12 @@ const alarms = process.argv.slice(2);
 const args = alarms
   .map(x => Number(x))
   .filter(x => x)
+  .filter(x => x > 0)
   .sort((a, b) => a - b);
 
 // Iterate through the args array and output beep. Skip numbers that are less than 0 by using continue.
 
 for (const arg of args) {
-  if (arg < 0) continue;
-
   setTimeout(() => {
     console.log(arg);
     process.stdout.write('\x07');
