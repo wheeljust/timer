@@ -8,12 +8,11 @@
 
 const alarms = process.argv.slice(2);
 
-// Process argv takes in arguments as strings. So need to map each element to a number, then filter out anything that is NaN and less than 0. Lastly, need to sort from lowest interval to highest so the beeps are in order. Use forEach to iterate on the remaining numbers and beep for the requested times.
+// Process argv takes in arguments as strings. So need to map each element to a number, then filter out anything that is NaN and less than 0. Use forEach to iterate on the remaining numbers and beep for the requested times.
 
 alarms
   .map(x => Number(x))
   .filter(x => x && x > 0)
-  .sort((a, b) => a - b)
   .forEach(x => {
     setTimeout(() => {
       console.log(x);
